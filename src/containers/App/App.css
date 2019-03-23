@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background ease-in-out 300ms;
 }
 
 .quote__block {
@@ -17,10 +18,12 @@
   border-radius: 5px;
   box-shadow: 0 5px 25px 3px rgba(0,0,0,0.3);
   animation: container-fit 200ms ease-out forwards;
+  transition: all ease-in-out 500ms;
 }
 
 .quote__block .quote__text {
   color: var(--app-background);
+  transition: color ease-in-out 350ms;
   margin-bottom: 40px;
   font-family: "Playfair Display", serif;
   font-weight: bold;
@@ -30,6 +33,7 @@
 
 .quote__block .quote__author {
   color: var(--app-background);
+  transition: color ease-in-out 350ms;
   font-weight: normal;
   font-size: 1.5rem;
   text-align: right;
@@ -44,6 +48,7 @@
 
 .quote__block .quote__controls--button {
   background-color: var(--app-background);
+  transition: background ease-in-out 300ms;
   color: #fff;
   border: none;
   border-radius: 3px;

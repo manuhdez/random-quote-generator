@@ -8,7 +8,7 @@ import './App.css';
 const app = () => {
   const [quotesList, setQuotesList] = useState([]);
   const [quote, setQuote] = useState({});
-  const [appColor, setAppColor] = useState('336699');
+  const [appColor, setAppColor] = useState('fff');
   const [error, setError] = useState({ status: false, message: '' });
 
   const generateRandomNumber = max => {
@@ -50,19 +50,23 @@ const app = () => {
     [quotesList]
   );
 
+  const quoteContainer = (
+    <React.Fragment>
+      <QuoteBlock
+        value={quote}
+        onQuoteChange={() => setRandomQuote(quotesList)}
+      />
+      <Signature />
+    </React.Fragment>
+  );
+
   return (
     <div className="App" style={{ '--app-background': `#${appColor}` }}>
-      {error.status ? (
-        <h1>{error.message}</h1>
-      ) : (
-        <React.Fragment>
-          <QuoteBlock
-            value={quote}
-            onQuoteChange={() => setRandomQuote(quotesList)}
-          />
-          <Signature />
-        </React.Fragment>
-      )}
+      {
+        error.status
+        ? <h1>{error.message}</h1>
+        : quote !== {} ? quoteContainer : null
+      }
     </div>
   );
 };
