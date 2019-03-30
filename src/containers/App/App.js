@@ -28,7 +28,7 @@ const app = () => {
     while (list[randomIndex].quote === quote.quote) {
       randomIndex = generateRandomNumber(list.length);
     }
-    setQuote(quotesList[randomIndex]);
+    setQuote(list[randomIndex]);
     changeAppColor(colorList);
   };
 
@@ -37,17 +37,16 @@ const app = () => {
     () => {
       // reset error state before reaching out
       setError({ status: false, message: '' });
-      // check if quotes has been already fetched
-      if (quotesList.length === 0) {
-        fetch(apiUrl)
-          .then(res => res.json())
-          .then(res => setQuotesList(res.quotes))
-          .catch(err => useState({ error: true, message: err.message }));
-      } else {
-        setRandomQuote(quotesList);
-      }
+      // fetch quotes from server and when the response is back set the first quote
+      fetch(apiUrl)
+        .then(res => res.json())
+        .then(res => {
+          setQuotesList(res.quotes);
+          setRandomQuote(res.quotes);
+        })
+        .catch(err => setError({ error: true, message: err.message }));
     },
-    [quotesList]
+    []
   );
 
   const quoteContainer = (
