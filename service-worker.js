@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/random-quote-with-hooks/precache-manifest.3c1e8a63bc023bf1d2e0f054cefb3519.js"
+  "/random-quotes-with-hooks/precache-manifest.53ec42ba1174fe22af08bb151ba7ce61.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/random-quote-with-hooks/index.html", {
+workbox.routing.registerNavigationRoute("/random-quotes-with-hooks/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
